@@ -1,6 +1,7 @@
 package com.bridgelabz.SnakeAndLadder;
 
 public class SnakeAndLader {
+
 	public static int rollCheck() {
 		int rollValue = (int) (Math.floor(Math.random() * 10 % 6 + 1));
 		return rollValue;
@@ -13,7 +14,7 @@ public class SnakeAndLader {
 	}
 
 	public static void main(String[] args) {
-		int position1 = 0;
+		int position1 = 0, counter = 0;
 		System.out.println("Welcome to Snake and Ladder Game");
 		System.out.println("Position of Player1 is:" + position1);
 		int winningPosition = 100;
@@ -39,6 +40,8 @@ public class SnakeAndLader {
 				break;
 			}
 			System.out.println("Current Position of player1 is: " + position1);
+			counter++;
 		}
+		System.out.println("Numbere of times the dice was played are: " + counter);
 	}
 }
