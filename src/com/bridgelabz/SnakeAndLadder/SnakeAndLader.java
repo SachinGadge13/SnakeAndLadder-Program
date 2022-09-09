@@ -2,27 +2,24 @@ package com.bridgelabz.SnakeAndLadder;
 
 public class SnakeAndLader {
 	public static int rollCheck() {
-		int rollValue = (int) (Math.floor(Math.random() * 10 % 7));
+		int rollValue = (int) (Math.floor(Math.random() * 10 % 6 + 1));
 		return rollValue;
 
 	}
 
 	public static int options() {
-		int option = (int) (Math.floor(Math.random() * 10 % 3));
+		int option = (int) (Math.floor(Math.random() * 10 % 4));
 		return option;
 	}
 
 	public static void main(String[] args) {
 		int position1 = 0;
-		
 		System.out.println("Welcome to Snake and Ladder Game");
 		System.out.println("Position of Player1 is:" + position1);
-		
-		int rollDie = rollCheck();
-		if (rollDie > 0) {
-		
+		int winningPosition = 100;
+		while (position1 != winningPosition) {
+			int rollDie = rollCheck();
 			System.out.println("Value at die is: " + rollDie);
-			
 			int checkOption = options();
 			switch (checkOption) {
 			case 0:
@@ -37,12 +34,15 @@ public class SnakeAndLader {
 				position1 = position1 - rollDie;
 				if (position1 < 0)
 					position1 = 0;
+			case 3:
+				if (position1 > 100) {
+					System.out.println("Sorry The Position is Out of Board.");
+					position1 -= rollDie;
+				}
 				break;
+
 			}
 			System.out.println("Current Position of player1 is: " + position1);
-
-		} else
-			System.out.println("Roll the die again!");
-
+		}
 	}
 }
