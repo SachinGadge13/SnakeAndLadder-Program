@@ -8,7 +8,7 @@ public class SnakeAndLader {
 	}
 
 	public static int options() {
-		int option = (int) (Math.floor(Math.random() * 10 % 4));
+		int option = (int) (Math.floor(Math.random() * 10 % 3));
 		return option;
 	}
 
@@ -28,19 +28,15 @@ public class SnakeAndLader {
 			case 1:
 				System.out.println("Ladder");
 				position1 = position1 + rollDie;
+				if (position1 > winningPosition)
+					position1 = position1 - rollDie;
 				break;
 			case 2:
 				System.out.println("Snake");
 				position1 = position1 - rollDie;
 				if (position1 < 0)
 					position1 = 0;
-			case 3:
-				if (position1 > 100) {
-					System.out.println("Sorry The Position is Out of Board.");
-					position1 -= rollDie;
-				}
 				break;
-
 			}
 			System.out.println("Current Position of player1 is: " + position1);
 		}
